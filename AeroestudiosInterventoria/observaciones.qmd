@@ -1,0 +1,120 @@
+---
+title: "Municipio Anza"
+format:
+  html:
+    embed-resources: true
+---
+
+#### _Observaciones revisión interventoria_
+## *1. Rural Calidad*
+```{python}
+#| echo: false
+import pandas as pd
+
+def cumple(value):
+  if value=="No Cumple":
+    return 'color:red'
+  else:
+    return ''
+
+dir=r"D:\PROYECTOS 2023\AEROESTUDIOS\INTERVENTORIA GNSS\Revisión\Anza\Anza_Revisión_RC.xlsx"
+data=pd.read_excel(dir,sheet_name='5.1 Insumos')
+df0=data.iloc[0:9,0:3] #Archivos faltantes
+df0=df0.style.applymap(cumple)
+
+df1=data.iloc[:,4:12] #Tabla de puntos
+df1=df1.style.applymap(cumple)
+
+data0=pd.read_excel(dir,sheet_name='5.3 Comparación Procesa')
+df2=data0.iloc[:30,:17];df3=df2.drop(df2.columns[[6,7]],axis=1,inplace=True)
+df2=df2.set_axis(df2.iloc[0],axis=1)
+
+```
+
+#### - No se adjuntaron Rinex de los puntos *R-ANZA-1 y CR-10692*
+#### - No se adjuntaron datos rinex de la base para los puntos *CR-10699, CR-10688 (carpeta 2023-03-10-069)*
+```{python}
+df0
+```
+```{python}
+df1
+```
+
+### Comparación Coordenadas
+
+#### - Las coordenadas del punto *CR-10692* difieren respecto al calculo realizado
+
+```{python}
+df2.iloc[[7],:]
+```
+---
+# *2. Urbano Calidad*
+
+```{python}
+#| echo: false
+
+dir=r"D:\PROYECTOS 2023\AEROESTUDIOS\INTERVENTORIA GNSS\Revisión\Anza\Anza_Revisión_UC.xlsx"
+data=pd.read_excel(dir,sheet_name='5.1 Insumos')
+df0=data.iloc[0:9,0:3] #Archivos faltantes
+df0=df0.style.applymap(cumple)
+
+df1=data.iloc[:,4:12] #Tabla de puntos
+df1=df1.style.applymap(cumple)
+
+data0=pd.read_excel(dir,sheet_name='5.3 Comparación Procesa')
+df2=data0.iloc[:30,:17];df3=df2.drop(df2.columns[[6,7]],axis=1,inplace=True)
+df2=df2.set_axis(df2.iloc[0],axis=1)
+
+```
+
+
+```{python}
+
+```
+```{python}
+
+```
+
+### Comparación Coordenadas
+
+#### -  Las coordenadas del puntos *CR-1029 ,CR-1031 y U-ANZA-1* difieren respecto al calculo realizado
+
+```{python}
+df2.iloc[[16,18,21],:]
+```
+
+# *3. Urbano Fotocontrol*
+
+```{python}
+#| echo: false
+
+dir=r"D:\PROYECTOS 2023\AEROESTUDIOS\INTERVENTORIA GNSS\Revisión\Anza\Anza_Revisión_UFTC.xlsx"
+data=pd.read_excel(dir,sheet_name='5.1 Insumos')
+df0=data.iloc[0:9,0:3] #Archivos faltantes
+df0=df0.style.applymap(cumple)
+
+df1=data.iloc[:,4:12] #Tabla de puntos
+df1=df1.style.applymap(cumple)
+
+data0=pd.read_excel(dir,sheet_name='5.3 Comparación Procesa')
+df2=data0.iloc[:30,:8];df3=df2.drop(df2.columns[[6,7]],axis=1,inplace=True)
+df2=df2.set_axis(df2.iloc[0],axis=1)
+
+```
+
+#### -  No se adjuntaron datos crudos de las bases
+#### -  No hay datos Rinex de la base para los puntos *FU-0492 y FU-0490*
+```{python}
+df0
+```
+```{python}
+df1
+```
+
+### Comparación Coordenadas
+
+#### -  Las coordenadas del puntos *FU-0492 y FU-0490* difieren respecto al calculo realizado debido a que no se adjuntaron datos crudos ni rinex de las bases.
+
+```{python}
+df2.iloc[[1,3],:]
+```
