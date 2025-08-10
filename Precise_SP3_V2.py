@@ -26,7 +26,7 @@ try:
     print("Conexión exitosa al FTP")
 
     # Carpeta de destino
-    destino_base = r"C:\Users\nicol\Downloads"
+    destino_base = r"C:\Users\nvias\Downloads"
     os.makedirs(destino_base, exist_ok=True)
 
     for d in range((fin - inicio).days + 1):

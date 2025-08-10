@@ -27,7 +27,7 @@ try:
     ftp.login()
     print("Conection sucessfull to a FTP")
     # open destination folder
-    os.chdir(r"C:\\Users\\NicolasViasus\\Downloads")
+    os.chdir(r"C:\Users\nvias\Downloads")
     for d in range((fin - inicio).days + 1):
         fecha =inicio + timedelta(days=d)
         GPSwk=gnsscal.date2gpswd(fecha) #GPS Week
